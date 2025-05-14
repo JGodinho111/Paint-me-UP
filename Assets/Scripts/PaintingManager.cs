@@ -304,7 +304,7 @@ public class PaintingManager : MonoBehaviour
         if (currentTargetColours.Count == 1)
         {
             StartCoroutine(Delay()); // Small delay to avoid problems if player is spamming the button
-            gameSetupComplete = true; // from now taps are handled
+            
         }
 
     }
@@ -313,8 +313,10 @@ public class PaintingManager : MonoBehaviour
     // - on very rare ocasions it could lead to an auto complete of a colour
     private IEnumerator Delay()
     {
-        // Wait for 0.5 second
-        yield return new WaitForSeconds(0.5f);
+        // Wait for 1 second
+        yield return new WaitForSeconds(1f);
+        gameSetupComplete = true; // from now taps are handled
+        yield return null;
     }
 
     // --------------------------------------------------- Game Start after cube generated ---------------------------------------------------

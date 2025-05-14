@@ -3335,7 +3335,7 @@ GameObject:
   - component: {fileID: 2512387469788781069}
   - component: {fileID: 2512387469788781074}
   m_Layer: 0
-  m_Name: XR Origin (AR Rig) From XR Interaction Toolkit
+  m_Name: XR Origin (AR Rig)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
