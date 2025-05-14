@@ -11,7 +11,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// TODO - Separate into more modular classes
+/// OLD - Before Separating into more modular classes
 /// Class that manages all core game functionalities after the cube is in scene
 /// It takes an image from the camera, converts it, gets 6 colors (the most common ones) and saves them
 /// Sets up and updates the core game timer and the hidden 30s timer accordingly

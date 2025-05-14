@@ -2539,6 +2539,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1431016218}
   - component: {fileID: 1431016219}
+  - component: {fileID: 1431016220}
+  - component: {fileID: 1431016221}
+  - component: {fileID: 1431016222}
+  - component: {fileID: 1431016223}
   m_Layer: 0
   m_Name: PaitingManager
   m_TagString: Untagged
@@ -2568,7 +2572,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431016217}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d72000e5bff2841b6bf65e6525d31f9b, type: 3}
   m_Name: 
@@ -2576,6 +2580,69 @@ MonoBehaviour:
   camManager: {fileID: 2512387470681560749}
   tapAction: {fileID: 2494954584338170553, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  mainTimerText: {fileID: 1314444646}
+  coloursTimerText: {fileID: 889449865}
+  imagesToShowColours:
+  - {fileID: 124127933}
+  - {fileID: 1213904189}
+  - {fileID: 144311239}
+  - {fileID: 9585845}
+  - {fileID: 592957896}
+  - {fileID: 398128973}
+  endScreenUI: {fileID: 483311338}
+--- !u!114 &1431016220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431016217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d67c5f4b13b3b4d52a1df1a9eabced22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camManager: {fileID: 2512387470681560749}
+--- !u!114 &1431016221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431016217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45868de77006c45f596e492fdc08f904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tapAction: {fileID: 2494954584338170553, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  camManager: {fileID: 2512387470681560749}
+--- !u!114 &1431016222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431016217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fada41627e6fb45b6b3eaaa7ecd4f7d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camManager: {fileID: 2512387470681560749}
+--- !u!114 &1431016223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431016217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e3b3a44c50649b79f827cd581acab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   mainTimerText: {fileID: 1314444646}
   coloursTimerText: {fileID: 889449865}
   imagesToShowColours:
