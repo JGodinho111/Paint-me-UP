@@ -90,8 +90,36 @@ Assets/ProBuilder Data.meta
 Assets/Plugins/Android/libs/
 Assets/Plugins/iOS/
 
-# Sample data from ARCore Extensions or external SDKs
-Assets/Samples/
+# Sample data from ARCore Extensions or external SDKs, excluding used assets (the prefabs)
+Assets/Samples/XR Interaction Toolkit/3.1.1/Starter Assets/
+Assets/Samples/XR Interaction Toolkit/3.1.1/Starter Assets.meta
+
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoSceneAssets/AffordanceThemes/
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoSceneAssets/AffordanceThemes.meta
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoSceneAssets/Animation/
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoSceneAssets/Animation.meta
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoSceneAssets/Materials/
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoSceneAssets/Materials.meta
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoSceneAssets/Models/
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoSceneAssets/Models.meta
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoSceneAssets/Prefabs/
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoSceneAssets/Prefabs.meta
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoSceneAssets/Scripts/
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoSceneAssets/Scripts.meta
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoSceneAssets/Textures/
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoSceneAssets/Textures.meta
+
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/Editor/
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/Editor.meta
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/Materials/
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/Materials.meta
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/Scripts/
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/Scripts.meta
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/Shaders/
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/Shaders.meta
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/Textures/
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/Textures.meta
+
 Assets/GoogleARCore*/Examples/
 Assets/GoogleARCore*/Samples/
 Assets/ARCoreExtensions*/Samples/
@@ -105,8 +133,35 @@ Assets/ARCoreExtensions*/Samples/
 *.orig
 crash.dmp
 
-# Using parts of it, maybe should include it
-Assets/MobileARTemplateAssets
+# Using some UI assets from the Mobile AR Template for the endScreen, keeping all in the GitHub repo
+Assets/MobileARTemplateAssets/AffordanceThemes/
+Assets/MobileARTemplateAssets/AffordanceThemes.meta
+Assets/MobileARTemplateAssets/Materials/
+Assets/MobileARTemplateAssets/Materials.meta
+Assets/MobileARTemplateAssets/Prefabs/
+Assets/MobileARTemplateAssets/Prefabs.meta
+Assets/MobileARTemplateAssets/Scripts/
+Assets/MobileARTemplateAssets/Scripts.meta
+Assets/MobileARTemplateAssets/Shaders/
+Assets/MobileARTemplateAssets/Shaders.meta
+Assets/MobileARTemplateAssets/Tutorial/
+Assets/MobileARTemplateAssets/Tutorial.meta
+Assets/MobileARTemplateAssets/UI/Animation/
+Assets/MobileARTemplateAssets/UI/Animation.meta
+Assets/MobileARTemplateAssets/UI/Fonts/
+Assets/MobileARTemplateAssets/UI/Fonts.meta
+Assets/MobileARTemplateAssets/UI/Prefabs/
+Assets/MobileARTemplateAssets/UI/Prefabs.meta
+Assets/MobileARTemplateAssets/UI/Scripts/
+Assets/MobileARTemplateAssets/UI/Scripts.meta
 
 # Unity Template Metadata Project
 *.utmp
+
+# DemoScene
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoScene.unity
+Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARDemoScene.unity.meta
+
+# AR Foundation Setup with XR Input Toolkit
+# Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARStarterAssets.asmdef
+# Assets/Samples/XR Interaction Toolkit/3.1.1/AR Starter Assets/ARStarterAssets.asmdef.meta
