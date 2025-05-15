@@ -75,9 +75,9 @@ crashlytics-build.properties
 Assets/TextMesh Pro/
 Assets/TextMesh Pro.meta
 
-# Exclude Project Settings
-ProjectSettings/
-ProjectSettings.meta
+# Exclude Project Settings - Nevermind, they are needed
+# ProjectSettings/
+# ProjectSettings.meta
 
 # Exclude TutorialInfo
 Assets/TutorialInfo/
