@@ -85,6 +85,9 @@ public class CubePainter : MonoBehaviour
         cubeMesh.ToMesh();
         cubeMesh.Refresh();
 
+        Debug.Log("Cube face " + faceIndex + " painted with rgb Color " + colourToAdd);
+        Debug.Log("rgb Color " + colourToAdd + " corresponds to Color32 " + (Color32)colourToAdd);
+
         // NOTE - OLD METHOD - Using the created cube mesh, rahter than a probuilder mesh
         // Each face has 4 unique vertices, from 0 to 3 for the first, followed by 4 to 7, etc
         /*int[] faceVertexes = new int[] { faceIndex * 4, faceIndex * 4 + 1, faceIndex * 4 + 2, faceIndex * 4 + 3 };

@@ -3,7 +3,9 @@ using UnityEngine.InputSystem;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-// Handles Player Taps and Processes the info, which auto updates PaintMeUpGameManager
+// Handles Player Taps and Processes the info partially
+// Then if is able to get camera image, calls on Colour Scanner for the rest of the processing
+// Clls on PaintMeUpGameManager variable to know if it can handle taps
 public class PlayerTapHandler : MonoBehaviour
 {
     [SerializeField]
@@ -56,14 +58,14 @@ public class PlayerTapHandler : MonoBehaviour
             {
                 Vector2 pressPos = Touchscreen.current.primaryTouch.startPosition.ReadValue();
 
-                Debug.LogError("Touch Detected at " + pressPos);
+                Debug.Log("Touch Detected at " + pressPos);
                 CheckColourAtTouch(pressPos);
             }
         }
         
     }
 
-    // Gets the screen camera image at the time of the press
+    // Gets the screen camera image at the time of the press and calls colour scanner to process it
     private void CheckColourAtTouch(Vector2 pressPos)
     {
         if (camManager.TryAcquireLatestCpuImage(out XRCpuImage image))
@@ -73,7 +75,7 @@ public class PlayerTapHandler : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Could not acquire current CPU image.");
+            Debug.LogWarning("Could not acquire current CPU image for player tap.");
         }
     }
 }

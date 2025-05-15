@@ -181,7 +181,7 @@ public class PaintingManager : MonoBehaviour
         {
             Vector2 pressPos = Touchscreen.current.primaryTouch.startPosition.ReadValue();
 
-            Debug.LogError("Touch Detected at " + pressPos);
+            Debug.Log("Touch Detected at " + pressPos);
             CheckColourAtTouch(pressPos);
         }
     }
@@ -196,7 +196,7 @@ public class PaintingManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Could not acquire current CPU image.");
+            Debug.LogWarning("Could not acquire current CPU image for player tap.");
         }
     }
 
@@ -234,8 +234,8 @@ public class PaintingManager : MonoBehaviour
         // Simplifying the colour so it doesn't need to be an exact pixel perfect match
         Color32 simplifiedTapped = new Color32((byte)(tappedColor.r / 32 * 32), (byte)(tappedColor.g / 32 * 32), (byte)(tappedColor.b / 32 * 32), 255);
 
-        Debug.LogError("Simplified Tapped color: " + simplifiedTapped.ToString());
-        Debug.LogError("Actual Tapped color: " + tappedColor.ToString());
+        Debug.Log("Simplified Tapped color: " + simplifiedTapped.ToString());
+        Debug.Log("Actual Tapped color: " + tappedColor.ToString());
 
         // Discard if it is not a target colour of has already been tapped before
         if (!currentTargetColours.Contains(simplifiedTapped) || completedColours.Contains(simplifiedTapped))
@@ -254,7 +254,7 @@ public class PaintingManager : MonoBehaviour
     // ARCubeSpawner's cube gameobject to update its face colours through CubePainter's AddColourToFace method
     private void CorrectColorSelected(Color32 colour)
     {
-        Debug.LogError("Correct color tapped: " + colour.ToString());
+        Debug.Log("Correct color tapped: " + colour.ToString());
         // Add to completed colours
         completedColours.Add(colour);
 
@@ -263,7 +263,7 @@ public class PaintingManager : MonoBehaviour
         {
             spawner.SpawnedCube.GetComponent<CubePainter>().AddColourToFace((completedColours.Count - 1), colour);
         }
-        Debug.LogError("Completed Colours: " + string.Join(", ", completedColours));
+        Debug.Log("Completed Colours: " + string.Join(", ", completedColours));
         // Add new target colour and reset timer
         AddNextTargetColour();
     }
@@ -281,9 +281,9 @@ public class PaintingManager : MonoBehaviour
 
         coloursTimer = resetTimer;
 
-        Debug.LogError("New Target Colour Added: " + string.Join(", ", newTargetColour));
-        Debug.LogError("Current Target Colours: " + string.Join(", ", currentTargetColours));
-        Debug.LogError("Current Completed Colours: " + string.Join(", ", completedColours));
+        Debug.Log("New Target Colour Added: " + string.Join(", ", newTargetColour));
+        Debug.Log("Current Target Colours: " + string.Join(", ", currentTargetColours));
+        Debug.Log("Current Completed Colours: " + string.Join(", ", completedColours));
 
         // For UI Update
         for (int i = 0; i < currentTargetColours.Count; i++)
@@ -325,7 +325,7 @@ public class PaintingManager : MonoBehaviour
     void StartGame()
     {
         gameStarted = true;
-        Debug.LogError("Game Started");
+        Debug.Log("Game Started");
         GetCameraImage();
     }
 
@@ -341,7 +341,7 @@ public class PaintingManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Error Loading Real World Image from camera");
+            Debug.LogError("Could not acquire current CPU image to start the game.");
         }
 
         // Not using AR Foundation - gets full screenshot (including the cube, so not used)
@@ -407,7 +407,7 @@ public class PaintingManager : MonoBehaviour
                                 .Select(kvp => kvp.Key) // by Color32
                                 .ToList();
 
-        Debug.LogError("6 Colours to find: " + string.Join(", ", savedColours));
+        Debug.Log("6 Colours to find: " + string.Join(", ", savedColours));
 
         // Adds initial colour display UI and sets timers
         ColourDisplay();
@@ -467,13 +467,13 @@ public class PaintingManager : MonoBehaviour
         {
             if (!winCondition)
             {
-                Debug.LogError("Game Lost");
+                Debug.Log("Game Lost");
                 endScreenUI.SetActive(true);
                 endScreenUI.GetComponentInChildren<TMP_Text>().SetText("You lost at Paint me UP!");
             }
             else
             {
-                Debug.LogError("Game Won");
+                Debug.Log("Game Won");
                 endScreenUI.SetActive(true);
                 endScreenUI.GetComponentInChildren<TMP_Text>().SetText("You won at Paint me UP!");
             }
