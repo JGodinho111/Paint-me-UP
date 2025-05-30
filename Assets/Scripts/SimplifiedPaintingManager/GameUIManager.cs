@@ -32,6 +32,12 @@ public class GameUIManager : MonoBehaviour
     private bool uISetUpComplete = false;
     private bool endScreenShown = false;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip endClip;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -115,6 +121,7 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
+    // TODO - Double check here, there might be an error
     public void UpdateImagesUI(List<Color32> currentTargetColours, List<Color32> savedColours, HashSet<Color32> completedColours)
     {
         // For UI Update
@@ -128,7 +135,7 @@ public class GameUIManager : MonoBehaviour
             // Lower Opacity if already completed
             if (completedColours.Contains(currentTargetColours[i]))
             {
-                imagesToShowColours[i].color = new Color32((byte)imagesToShowColours[i].color.r, (byte)imagesToShowColours[i].color.g, (byte)imagesToShowColours[i].color.b, 50);
+                imagesToShowColours[i].color = new Color32((byte)imagesToShowColours[i].color.r, (byte)imagesToShowColours[i].color.g, (byte)imagesToShowColours[i].color.b, 100);
             }
         }
 
@@ -140,6 +147,13 @@ public class GameUIManager : MonoBehaviour
     {
         if (endScreenUI != null)
         {
+            // Play end sound
+            if (audioSource != null && endClip != null)
+            {
+                audioSource.PlayOneShot(endClip);
+                Debug.LogError("Playing game end audio clip!");
+            }
+
             if (!manager.gameEndingCondition)
             {
                 Debug.Log("Game Lost");

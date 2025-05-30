@@ -240,6 +240,9 @@ public class PaintingManager : MonoBehaviour
         // Discard if it is not a target colour of has already been tapped before
         if (!currentTargetColours.Contains(simplifiedTapped) || completedColours.Contains(simplifiedTapped))
         {
+            Handheld.Vibrate();
+            Debug.LogError("Vibrating phone");
+            yield return new WaitForSeconds(1f);
             yield return null;
         }
         else

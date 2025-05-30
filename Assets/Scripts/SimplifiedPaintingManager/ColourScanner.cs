@@ -27,6 +27,15 @@ public class ColourScanner : MonoBehaviour
 
     private bool isGettingCameraImage = false;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip incorrectColorClip;
+
+    [SerializeField]
+    private AudioClip successColorClip;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -162,11 +171,28 @@ public class ColourScanner : MonoBehaviour
         // Discard if it is not a target colour of has already been tapped before
         if (!manager.currentTargetColours.Contains(simplifiedTapped) || manager.completedColours.Contains(simplifiedTapped))
         {
+            // Play Incorrect Colour Sound
+            if (audioSource != null && incorrectColorClip != null)
+            {
+                audioSource.PlayOneShot(incorrectColorClip);
+                Debug.LogError("Playing incorrect color selected audio clip!");
+            }
+
+            // Vibrates phone on incorrect tap for 1 second - Only works on Android, and may not work on all versions
+            Handheld.Vibrate();
+            Debug.LogError("Vibrating phone");
             yield return null;
         }
         else
         {
             // If here it is a valid needed color
+            // Play Completed Sound
+            if (audioSource != null && successColorClip != null)
+            {
+                audioSource.PlayOneShot(successColorClip);
+                Debug.LogError("Playing success audio clip!");
+            }
+
             CorrectColorSelected(simplifiedTapped);
             yield return null;
         }

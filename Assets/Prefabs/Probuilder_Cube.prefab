@@ -393,3 +393,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9c1cccaae1f44328160b8f3925a5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctSelectionAnimation: {fileID: 5478437640059626809, guid: 7070d611feafe46feac45d9488db1544,
+    type: 3}

@@ -7,4 +7,13 @@ Android AR Game Prototype
     
 - Move around to detect the ground, press the button to create a cube, and start the game. You have 180 seconds to find the colours shown in the UI in the real world. Once any correct colour is selected or 30 seconds passes a new one is shown. Every correct color found is painted on one cube face!
 
-- Note: Sounds not present
+- Sounds, shaking and particle effects were added after initial build
+
+- NOTE: Still has a bug regarding UI not updating correctly with some completed colours OR UI is correct, but some colors are being detected incorrectly and then completed
+
+- Script Structure: TODO
+
+- External Sound Assets Used:
+    - https://www.youtube.com/watch?v=iHxrseIqpNk
+    - https://www.youtube.com/watch?v=dt2kfez86P0
+    - https://www.youtube.com/watch?v=QqvLHzWaF_s

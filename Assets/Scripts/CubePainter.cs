@@ -24,6 +24,9 @@ public class CubePainter : MonoBehaviour
     private ProBuilderMesh cubeMesh;
     private Color[] colours;
 
+    [SerializeField]
+    private ParticleSystem correctSelectionAnimation;
+
     /*private void Awake()
     {
         GenerateMeshData();
@@ -36,6 +39,7 @@ public class CubePainter : MonoBehaviour
         cubeMesh.colors = colours;
     }*/
 
+    private bool initialColourSet = false;
 
     private void Start()
     {
@@ -84,6 +88,17 @@ public class CubePainter : MonoBehaviour
         cubeMesh.colors = colours;
         cubeMesh.ToMesh();
         cubeMesh.Refresh();
+
+        // Show UI Particle Effect
+        if (correctSelectionAnimation != null && initialColourSet)
+        {
+            ParticleSystem ps = Instantiate(correctSelectionAnimation, transform.position, Quaternion.identity);
+
+            ps.Play();
+            Debug.LogError("Playing animation!");
+            Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
+        }
+        initialColourSet = true;
 
         Debug.Log("Cube face " + faceIndex + " painted with rgb Color " + colourToAdd);
         Debug.Log("rgb Color " + colourToAdd + " corresponds to Color32 " + (Color32)colourToAdd);
