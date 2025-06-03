@@ -121,7 +121,6 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
-    // TODO - Double check here, there might be an error
     public void UpdateImagesUI(List<Color32> currentTargetColours, List<Color32> savedColours, HashSet<Color32> completedColours)
     {
         // For UI Update
@@ -151,7 +150,7 @@ public class GameUIManager : MonoBehaviour
             if (audioSource != null && endClip != null)
             {
                 audioSource.PlayOneShot(endClip);
-                Debug.LogError("Playing game end audio clip!");
+                Debug.Log("Playing game end audio clip!");
             }
 
             if (!manager.gameEndingCondition)

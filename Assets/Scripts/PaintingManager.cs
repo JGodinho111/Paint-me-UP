@@ -64,6 +64,21 @@ public class PaintingManager : MonoBehaviour
     [SerializeField]
     private GameObject endScreenUI;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip incorrectColorClip;
+
+    [SerializeField]
+    private AudioClip successColorClip;
+
+    [SerializeField]
+    private AudioSource audioSourceEndScreen;
+
+    [SerializeField]
+    private AudioClip endClip;
+
     // --------------------------------------------------- Singleton Setup &  ARCubeSpawner instance reference ---------------------------------------------------
 
     // Instantiating Singleton
@@ -240,13 +255,28 @@ public class PaintingManager : MonoBehaviour
         // Discard if it is not a target colour of has already been tapped before
         if (!currentTargetColours.Contains(simplifiedTapped) || completedColours.Contains(simplifiedTapped))
         {
+            // Play Incorrect Colour Sound
+            if (audioSource != null && incorrectColorClip != null)
+            {
+                audioSource.PlayOneShot(incorrectColorClip);
+                Debug.Log("Playing incorrect color selected audio clip!");
+            }
+
+            // Vibrates phone on incorrect tap for 1 second - Only works on Android, and may not work on all versions
             Handheld.Vibrate();
-            Debug.LogError("Vibrating phone");
-            yield return new WaitForSeconds(1f);
+            Debug.Log("Vibrating phone");
             yield return null;
         }
         else
         {
+            // If here it is a valid needed color
+            // Play Completed Sound
+            if (audioSource != null && successColorClip != null)
+            {
+                audioSource.PlayOneShot(successColorClip);
+                Debug.Log("Playing success audio clip!");
+            }
+
             // If here it is a valid needed color
             CorrectColorSelected(simplifiedTapped);
             yield return null;
@@ -277,7 +307,20 @@ public class PaintingManager : MonoBehaviour
     private void AddNextTargetColour()
     {
         if (currentTargetColours.Count == savedColours.Count)
+        {
+            // NOTE: Not the most efficient
+
+            // For UI Update
+            for (int i = 0; i < currentTargetColours.Count; i++)
+            {
+                // Lower Opacity if already completed
+                if (completedColours.Contains(currentTargetColours[i]))
+                {
+                    imagesToShowColours[i].color = new Color32((byte)imagesToShowColours[i].color.r, (byte)imagesToShowColours[i].color.g, (byte)imagesToShowColours[i].color.b, 50);
+                }
+            }
             return;
+        }
 
         var newTargetColour = savedColours[currentTargetColours.Count];
         currentTargetColours.Add(newTargetColour);
@@ -468,6 +511,13 @@ public class PaintingManager : MonoBehaviour
 
         if (endScreenUI != null)
         {
+            // Play end sound
+            if (audioSourceEndScreen != null && endClip != null)
+            {
+                audioSourceEndScreen.PlayOneShot(endClip);
+                Debug.Log("Playing game end audio clip!");
+            }
+
             if (!winCondition)
             {
                 Debug.Log("Game Lost");

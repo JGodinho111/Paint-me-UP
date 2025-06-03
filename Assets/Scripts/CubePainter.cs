@@ -59,13 +59,13 @@ public class CubePainter : MonoBehaviour
         // Setting up colours for each vertex
         colours = new Color[cubeMesh.vertexCount];
 
-        foreach(var face in faces)
+        /*foreach(var face in faces)
         {
             foreach(int i in face.distinctIndexes)
             {
                 colours[i] = Color.black;
             }
-        }
+        }*/
 
         // Painting the cube white
         for(int i = 0; i < faces.Count; i++)
@@ -80,6 +80,8 @@ public class CubePainter : MonoBehaviour
     public void AddColourToFace(int faceIndex, Color colourToAdd) // Was having issues with Color32, switched to Color
     {
         var faces = cubeMesh.faces; // saving in a temporary variable since it is better for performance, but mostly insignificant
+
+        // Changing the colour on the vertexes corresponding to the face Index face vertexes
         foreach (int i in cubeMesh.faces[faceIndex].distinctIndexes)
         {
             colours[i] = colourToAdd;
@@ -95,7 +97,7 @@ public class CubePainter : MonoBehaviour
             ParticleSystem ps = Instantiate(correctSelectionAnimation, transform.position, Quaternion.identity);
 
             ps.Play();
-            Debug.LogError("Playing animation!");
+            Debug.Log("Playing animation!");
             Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
         }
         initialColourSet = true;

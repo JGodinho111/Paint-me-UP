@@ -157,7 +157,10 @@ public class PaintMeUpGameManager : MonoBehaviour
     public void AddNextTargetColour()
     {
         if (currentTargetColours.Count == savedColours.Count)
+        {
+            newTargetColourAdded = true;
             return;
+        }
 
         var newTargetColour = savedColours[currentTargetColours.Count];
         currentTargetColours.Add(newTargetColour);
@@ -168,15 +171,17 @@ public class PaintMeUpGameManager : MonoBehaviour
         Debug.Log("Current Target Colours: " + string.Join(", ", currentTargetColours));
         Debug.Log("Current Completed Colours: " + string.Join(", ", completedColours));
 
-        //uiManager.UpdateImagesUI(currentTargetColours, savedColours, completedColours);
-        newTargetColourAdded = true;
-
         // If it is the first target colour and it is setup then the game can begin
         if (currentTargetColours.Count == 1)
         {
             StartCoroutine(Delay()); // Small delay to avoid problems if player is spamming the button
         }
 
+        //uiManager.UpdateImagesUI(currentTargetColours, savedColours, completedColours);
+        newTargetColourAdded = true;
+
+        // note: Just to check if this solves the issue of UI updates (even if I shouldn't technically call it if I'm a singleton)
+        //FindFirstObjectByType<GameUIManager>().UpdateImagesUI(currentTargetColours, savedColours, completedColours);
     }
 
     // this is only here to stop the tap action from being detected immediately once the game is set up

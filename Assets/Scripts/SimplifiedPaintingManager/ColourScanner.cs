@@ -175,12 +175,12 @@ public class ColourScanner : MonoBehaviour
             if (audioSource != null && incorrectColorClip != null)
             {
                 audioSource.PlayOneShot(incorrectColorClip);
-                Debug.LogError("Playing incorrect color selected audio clip!");
+                Debug.Log("Playing incorrect color selected audio clip!");
             }
 
             // Vibrates phone on incorrect tap for 1 second - Only works on Android, and may not work on all versions
             Handheld.Vibrate();
-            Debug.LogError("Vibrating phone");
+            Debug.Log("Vibrating phone");
             yield return null;
         }
         else
@@ -190,7 +190,7 @@ public class ColourScanner : MonoBehaviour
             if (audioSource != null && successColorClip != null)
             {
                 audioSource.PlayOneShot(successColorClip);
-                Debug.LogError("Playing success audio clip!");
+                Debug.Log("Playing success audio clip!");
             }
 
             CorrectColorSelected(simplifiedTapped);
