@@ -6,6 +6,9 @@ Android AR Game Prototype
 
 - This is a Game App created in unity using AR Foundations, ProBuilder and Unity 6 XR Interaction Toolkit for input detection.
 
+- Playable version download: https://jgodinho.itch.io/paint-me-up-mobile-game 
+- Showcase Video: https://youtu.be/_MK79-4ivwc
+
 - When downloading the project from GitHub, after opening the project in the Unity Editor, switch build profile to Android, then go to Assets -> Scenes -> GameScene_MoreModular for used game scene.
     
 - Script Structure:
